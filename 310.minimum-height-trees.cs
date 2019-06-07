@@ -11,10 +11,10 @@ public class Solution
 
         // convert to adjacency list
 
-        HashSet<int>[] adjList = new HashSet<int>[n];
+        List<int>[] adjList = new List<int>[n];
         for (int i = 0; i < n; i++)
         {
-            adjList[i] = new HashSet<int>();
+            adjList[i] = new List<int>();
         }
 
         foreach (var edge in edges)
