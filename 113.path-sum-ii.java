@@ -48,9 +48,15 @@
  */
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        // List<List<Integer>> result = new ArrayList<>();
+        // List<Integer> current = new ArrayList<>();
+        // helper(root, sum, current, result);
+
+        /// back-tracking solution
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        helper(root, sum, current, result);
+        List<Integer> currentResult = new ArrayList<>();
+
+        pathSum(root, sum, currentResult, result);
 
         return result;
     }
@@ -69,5 +75,21 @@ class Solution {
         }
 
         current.remove(current.size() - 1);
+    }
+
+    private void pathSum(TreeNode root, int sum, List<Integer> currentResult, List<List<Integer>> result) {
+        if (root == null)
+            return;
+
+        currentResult.add(root.val);
+
+        if (root.left == null && root.right == null && root.val == sum) {
+            result.add(new ArrayList<>(currentResult));
+        } else {
+            pathSum(root.left, sum - root.val, currentResult, result);
+            pathSum(root.right, sum - root.val, currentResult, result);
+        }
+
+        currentResult.remove(currentResult.size() - 1);
     }
 }
