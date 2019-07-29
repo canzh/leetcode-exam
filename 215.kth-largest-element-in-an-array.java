@@ -57,8 +57,8 @@ class Solution {
 
     int partition(int[] nums, int low, int high) {
         int pivot = nums[high];
+        
         int small = low;
-
         for (int i = low; i < high; i++) {
             if (nums[i] <= pivot) {
                 swap(nums, small, i);
