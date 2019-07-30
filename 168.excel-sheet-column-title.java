@@ -60,4 +60,8 @@ class Solution {
         }
         return ret;
     }
+
+    String convertToTitle2(int n) {
+        return n == 0 ? "" : convertToTitle(--n / 26) + (n % 26 + 'A');
+    }
 }
