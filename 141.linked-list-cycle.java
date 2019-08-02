@@ -74,13 +74,11 @@ public class Solution {
     public boolean hasCycle(ListNode head) {
         ListNode oneStep = head, twoStep = head;
 
-        while (oneStep != null && twoStep != null) {
+        while (twoStep != null && twoStep.next != null) {
             oneStep = oneStep.next;
-            twoStep = twoStep.next;
-            if (twoStep != null)
-                twoStep = twoStep.next;
+            twoStep = twoStep.next.next;
 
-            if (twoStep != null && oneStep == twoStep)
+            if (oneStep == twoStep)
                 return true;
         }
 

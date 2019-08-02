@@ -64,4 +64,10 @@ class Solution {
         }
         return prev1;
     }
+
+    int rob(int[] nums, int n) {
+        if (n < 0)
+            return 0;
+        return Math.max(rob(nums, n - 1), rob(nums, n - 2) + nums[n]);
+    }
 }
