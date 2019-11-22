@@ -56,12 +56,15 @@ class Solution {
             len++;
         }
 
+        // reverse from head
         if (start == null) {
             head.next = p;
             return prev;
         }
 
+        // tail of reverse part point to third part
         start.next.next = p;
+        // tail of first part point to head of second part
         start.next = prev;
         return head;
     }
